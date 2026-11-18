@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -15,226 +14,64 @@ body {
 
 /* ==========================================
    HEADER & NAVIGATION
-   Uses Flexbox to space out Logo, Nav, and Search
    ========================================== */
 header {
     background-color: #001a33; /* Dark Navy Blue */
     color: white;
-    display: flex; /* Puts Logo, Nav, and Search side-by-side */
-    justify-content: space-between; /* Pushes them to the edges */
-    align-items: center; /* Centers them vertically */
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
     padding: 15px 50px;
-    position: sticky; /* Keeps header at the top when scrolling */
+    position: sticky; 
     top: 0;
-    z-index: 100; /* Ensures header stays above other content */
+    z-index: 100; 
+}
+
+/* --- NEW LOGO STYLING --- */
+.logo a {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between logo image and text */
+    text-decoration: none;
+    color: white;
+}
+
+.logo-img {
+    height: 50px; /* Adjust this if your logo is too big or too small */
+    width: auto;
 }
 
 .logo h1 {
     font-size: 22px;
     font-weight: 700;
+    margin: 0;
 }
 
 nav ul {
-    list-style: none; /* Removes bullet points */
-    display: flex; /* Puts list items side-by-side */
-    gap: 30px; /* Space between links */
+    list-style: none; 
+    display: flex; 
+    gap: 30px; 
 }
 
 nav a {
-    color: #b0c4de; /* Light grayish-blue */
-    text-decoration: none; /* Removes underline */
+    color: #b0c4de; 
+    text-decoration: none; 
     font-size: 14px;
     font-weight: 600;
-    transition: color 0.3s; /* Smooth color change on hover */
+    transition: color 0.3s; 
 }
 
-/* Changes link color to gold when hovered or active */
 nav a:hover, nav a.active {
     color: #f1c40f; 
 }
 
 .nav-search input {
     padding: 8px 15px;
-    border-radius: 20px; /* Rounded corners */
+    border-radius: 20px; 
     border: none;
     outline: none;
     background-color: #112b45;
     color: white;
-}
-
-/* ==========================================
-   Background image with a dark gradient overlay
-   ========================================== */
-.hero {
-    /* Linear-gradient creates a dark overlay so white text is readable over the image */
-    background-image: linear-gradient(rgba(0, 26, 51, 0.7), rgba(0, 26, 51, 0.3)), url('https://images.unsplash.com/photo-1516939884455-1445c8652f83?q=80&w=2000&auto=format&fit=crop'); 
-    background-size: cover; /* Makes image fill the area */
-    background-position: center;
-    height: 450px;
-    display: flex;
-    align-items: center; /* Centers content vertically */
-    padding: 0 10%;
-    color: white;
-}
-
-.hero-content {
-    max-width: 600px; /* Prevents text from stretching too wide */
-}
-
-.subtitle {
-    color: #f1c40f; /* Gold */
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    display: block;
-    margin-bottom: 10px;
-}
-
-.hero-content h2 {
-    font-size: 48px;
-    line-height: 1.2;
-    margin-bottom: 15px;
-}
-
-.btn-gold {
-    background-color: #f1c40f;
-    color: #001a33;
-    padding: 12px 25px;
-    text-decoration: none;
-    font-weight: 700;
-    border-radius: 4px;
-    display: inline-block;
-}
-
-.btn-gold:hover {
-    background-color: #d4ac0d; /* Darker gold on hover */
-}
-
-/* ==========================================
-   SEARCH WIDGET
-   The floating box that overlaps the hero image
-   ========================================== */
-.search-widget {
-    background-color: white;
-    width: 80%;
-    max-width: 1100px;
-    margin: -50px auto 50px auto; /* Negative top margin pulls it UP into the hero image */
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Creates the floating effect */
-    position: relative;
-    z-index: 10; /* Keeps it above the hero section */
-}
-
-.search-form {
-    display: flex; /* Puts all input fields side-by-side */
-    gap: 15px; /* Space between inputs */
-    align-items: flex-end;
-}
-
-.input-group {
-    display: flex;
-    flex-direction: column; /* Stacks Label on top of Input */
-    flex: 1; /* Makes all input groups take equal width */
-}
-
-.input-group label {
-    font-size: 10px;
-    font-weight: 700;
-    color: #888;
-    margin-bottom: 5px;
-}
-
-.input-group input {
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-.btn-search {
-    background-color: #f1c40f;
-    color: #001a33;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 4px;
-    font-weight: 700;
-    cursor: pointer;
-    height: 43px; /* Matches the height of the inputs */
-}
-
-/* ==========================================
-   INFO CARDS SECTION
-   ========================================== */
-.info-section {
-    width: 80%;
-    max-width: 1100px;
-    margin: 0 auto 60px auto;
-}
-
-.section-heading {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 30px;
-}
-
-.cards-container {
-    display: flex;
-    gap: 20px; /* Space between cards */
-}
-
-.card {
-    background-color: white;
-    padding: 30px;
-    border-radius: 8px;
-    flex: 1; /* Makes all cards equal width */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Soft shadow */
-    transition: transform 0.3s; /* Smooth animation for hover effect */
-}
-
-.card:hover {
-    transform: translateY(-5px); /* Lifts the card up slightly on hover */
-}
-
-.card-icon {
-    background-color: #eef4fa;
-    width: 45px;
-    height: 45px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-    font-size: 20px;
-    margin-bottom: 20px;
-}
-
-/* ==========================================
-   BANNER & FOOTER
-   ========================================== */
-.banner {
-    background-color: white;
-    padding: 40px 10%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid #eee;
-    border-bottom: 1px solid #eee;
-}
-
-footer {
-    background-color: #111; /* Almost black */
-    color: #888;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 10%;
-    font-size: 12px;
-}
-
-.footer-right a {
-    color: #888;
-    text-decoration: none;
-    margin-left: 20px;
 }
 
 /* --- HEADER LOGIN BUTTONS --- */
@@ -269,12 +106,195 @@ footer {
     background-color: #d4ac0d;
 }
 
-/* --- AUTHENTICATION PAGES (Login & Register) --- */
+/* ==========================================
+   HERO SECTION
+   ========================================== */
+.hero {
+    background-image: linear-gradient(rgba(0, 26, 51, 0.7), rgba(0, 26, 51, 0.3)), url('https://images.unsplash.com/photo-1516939884455-1445c8652f83?q=80&w=2000&auto=format&fit=crop'); 
+    background-size: cover; 
+    background-position: center;
+    height: 450px;
+    display: flex;
+    align-items: center; 
+    padding: 0 10%;
+    color: white;
+}
+
+.hero-content {
+    max-width: 600px; 
+}
+
+.subtitle {
+    color: #f1c40f; 
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.hero-content h2 {
+    font-size: 48px;
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+.btn-gold {
+    background-color: #f1c40f;
+    color: #001a33;
+    padding: 12px 25px;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.btn-gold:hover {
+    background-color: #d4ac0d; 
+}
+
+/* ==========================================
+   SEARCH WIDGET
+   ========================================== */
+.search-widget {
+    background-color: white;
+    width: 80%;
+    max-width: 1100px;
+    margin: -50px auto 50px auto; 
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+    position: relative;
+    z-index: 10; 
+}
+
+.search-form {
+    display: flex; 
+    gap: 15px; 
+    align-items: flex-end;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column; 
+    flex: 1; 
+}
+
+.input-group label {
+    font-size: 10px;
+    font-weight: 700;
+    color: #888;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.btn-search {
+    background-color: #f1c40f;
+    color: #001a33;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    font-weight: 700;
+    cursor: pointer;
+    height: 43px; 
+}
+
+/* ==========================================
+   INFO CARDS SECTION
+   ========================================== */
+.info-section {
+    width: 80%;
+    max-width: 1100px;
+    margin: 0 auto 60px auto;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 30px;
+}
+
+.cards-container {
+    display: flex;
+    gap: 20px; 
+}
+
+.card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    flex: 1; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+    transition: transform 0.3s; 
+}
+
+.card:hover {
+    transform: translateY(-5px); 
+}
+
+/* --- NEW CARD ICON STYLING --- */
+.card-icon {
+    background-color: #eef4fa;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    overflow: hidden; /* Ensures image stays inside the blue box */
+    font-size: 24px; /* For the emoji fallback */
+}
+
+.card-icon img {
+    width: 60%; 
+    height: auto;
+    object-fit: contain;
+}
+
+/* ==========================================
+   BANNER & FOOTER
+   ========================================== */
+.banner {
+    background-color: white;
+    padding: 40px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+footer {
+    background-color: #111; 
+    color: #888;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+    font-size: 12px;
+}
+
+.footer-right a {
+    color: #888;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+/* ==========================================
+   AUTHENTICATION PAGES (Login & Register)
+   ========================================== */
 .auth-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 70vh; /* Takes up most of the screen */
+    min-height: 70vh; 
     background-color: #f4f6f9;
     padding: 40px 20px;
 }
@@ -285,7 +305,7 @@ footer {
     border-radius: 8px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     width: 100%;
-    max-width: 450px; /* Keeps the form narrow and clean */
+    max-width: 450px; 
 }
 
 .auth-box h2 {
@@ -320,7 +340,6 @@ footer {
     font-family: inherit;
 }
 
-/* Makes the gold button span the full width of the form */
 .full-width {
     width: 100%;
     text-align: center;

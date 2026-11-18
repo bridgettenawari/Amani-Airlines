@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,21 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amani Airlines</title>
     
-    <!-- 1. GOOGLE FONTS: We import 'Montserrat' to make the text look modern and clean -->
+    <!-- 1. GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- 2. EXTERNAL CSS LINK: Links to our separate styling file -->
+    <!-- 2. EXTERNAL CSS LINK -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
     <!-- ==========================================
          HEADER SECTION
-         Uses semantic <header> and <nav> tags
          ========================================== -->
     <header>
         <div class="logo">
-            <h1>✈️ Amani Airlines</h1>
+            <!-- REPLACED EMOJI WITH YOUR LOGO -->
+            <a href="index.html">
+                <img src="assets/images/logo.png" alt="Amani Airlines Logo" class="logo-img">
+                <h1>Amani Airlines</h1>
+            </a>
         </div>
         
         <!-- Navigation menu -->
@@ -40,33 +42,25 @@
         </div>
 
         <div class="nav-actions">
-    <a href="auth/login.html" class="login-link">Login</a>
-    <a href="auth/register.html" class="btn-register">Create Account</a>
-    
-</div>
+            <a href="auth/login.html" class="login-link">Login</a>
+            <a href="auth/register.html" class="btn-register">Create Account</a>
+        </div>
     </header>
 
     <!-- ==========================================
-         The big background image with the main title
+         HERO SECTION
          ========================================== -->
     <section class="hero">
         <div class="hero-content">
-            <!-- Small text above the title -->
             <span class="subtitle">DISCOVER AFRICA AND BEYOND</span>
-            
-            <!-- Main Heading using <h2> because <h1> is in the logo -->
             <h2>Fly with Amani.<br>Your journey begins here.</h2>
-            
             <p>Thoughtful service, inspiring destinations, and the warm spirit of Africa—every time you fly.</p>
-            
-            <!-- Call to Action (CTA) Button -->
             <a href="#search" class="btn-gold">Book a Flight &rarr;</a>
         </div>
     </section>
 
     <!-- ==========================================
          SEARCH WIDGET
-         The floating white box for booking
          ========================================== -->
     <section class="search-widget" id="search">
         <div class="search-header">
@@ -74,28 +68,22 @@
             <span class="badge">Best fares, always</span>
         </div>
         
-        <!-- The form uses Flexbox in CSS to put inputs side-by-side -->
         <form class="search-form">
-            <!-- Input Group 1: Departure -->
             <div class="input-group">
                 <label>FROM</label>
                 <input type="text" placeholder="Nairobi (NBO)">
             </div>
             
-            <!-- Input Group 2: Destination -->
             <div class="input-group">
                 <label>TO</label>
                 <input type="text" placeholder="Where are you going?">
             </div>
             
-            <!-- Input Group 3: Date 1 -->
             <div class="input-group">
                 <label>DEPARTURE DATE</label>
-                <!-- HTML5 input type="date" provides a built-in calendar picker -->
                 <input type="date">
             </div>
             
-            <!-- Input Group 4: Date 2 -->
             <div class="input-group">
                 <label>RETURN DATE</label>
                 <input type="date">
@@ -107,7 +95,6 @@
 
     <!-- ==========================================
          MAIN CONTENT SECTION
-         Uses <main> because this is the core content
          ========================================== -->
     <main class="info-section">
         <div class="section-heading">
@@ -118,24 +105,27 @@
             <p>Stay informed before takeoff and make every part of your journey effortless.</p>
         </div>
 
-        <!-- Container for the 3 cards -->
         <div class="cards-container">
             
-            <!-- Card 1: Uses <article> because it's a self-contained piece of content -->
+            <!-- Card 1: Arrivals (REPLACED EMOJI WITH IMAGE) -->
             <article class="card">
-                <div class="card-icon">✈️</div>
+                <div class="card-icon">
+                    <img src="assets/images/Arrival.png" alt="Arrivals Icon">
+                </div>
                 <h3>Arrivals</h3>
                 <p>Track incoming flights and stay updated on arrival times.</p>
             </article>
             
-            <!-- Card 2 -->
+            <!-- Card 2: Departures (REPLACED EMOJI WITH IMAGE) -->
             <article class="card">
-                <div class="card-icon">🛫</div>
+                <div class="card-icon">
+                    <img src="assets/images/Departure.png" alt="Departures Icon">
+                </div>
                 <h3>Departures</h3>
                 <p>View departure schedules, gates, and real-time updates.</p>
             </article>
 
-            <!-- Card 3 -->
+            <!-- Card 3: Hotels (Keeping emoji for now) -->
             <article class="card">
                 <div class="card-icon">🏨</div>
                 <h3>Hotels</h3>
@@ -147,7 +137,6 @@
 
     <!-- ==========================================
          BANNER SECTION
-         A simple horizontal call-to-action
          ========================================== -->
     <section class="banner">
         <h2>Wherever life takes you, get there with Amani.</h2>
@@ -156,7 +145,6 @@
 
     <!-- ==========================================
          FOOTER SECTION
-         Uses semantic <footer> tag
          ========================================== -->
     <footer>
         <div class="footer-left">
