@@ -1,0 +1,353 @@
+/* ==========================================
+   GLOBAL RESET
+   Removes default browser margins/padding
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensures padding doesn't affect total width */
+}
+
+/* Base body styles */
+body {
+    font-family: 'Montserrat', sans-serif; /* The font we imported in HTML */
+    background-color: #f8f9fa; /* Light gray background */
+    color: #333; /* Dark gray text for readability */
+    line-height: 1.6;
+}
+
+/* ==========================================
+   HEADER & NAVIGATION
+   Uses Flexbox to space out Logo, Nav, and Search
+   ========================================== */
+header {
+    background-color: #001a33; /* Dark Navy Blue */
+    color: white;
+    display: flex; /* Puts Logo, Nav, and Search side-by-side */
+    justify-content: space-between; /* Pushes them to the edges */
+    align-items: center; /* Centers them vertically */
+    padding: 15px 50px;
+    position: sticky; /* Keeps header at the top when scrolling */
+    top: 0;
+    z-index: 100; /* Ensures header stays above other content */
+}
+
+.logo h1 {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+nav ul {
+    list-style: none; /* Removes bullet points */
+    display: flex; /* Puts list items side-by-side */
+    gap: 30px; /* Space between links */
+}
+
+nav a {
+    color: #b0c4de; /* Light grayish-blue */
+    text-decoration: none; /* Removes underline */
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.3s; /* Smooth color change on hover */
+}
+
+/* Changes link color to gold when hovered or active */
+nav a:hover, nav a.active {
+    color: #f1c40f; 
+}
+
+.nav-search input {
+    padding: 8px 15px;
+    border-radius: 20px; /* Rounded corners */
+    border: none;
+    outline: none;
+    background-color: #112b45;
+    color: white;
+}
+
+/* ==========================================
+   HERO SECTION
+   Background image with a dark gradient overlay
+   ========================================== */
+.hero {
+    /* Linear-gradient creates a dark overlay so white text is readable over the image */
+    background-image: linear-gradient(rgba(0, 26, 51, 0.7), rgba(0, 26, 51, 0.3)), url('https://images.unsplash.com/photo-1516939884455-1445c8652f83?q=80&w=2000&auto=format&fit=crop'); 
+    background-size: cover; /* Makes image fill the area */
+    background-position: center;
+    height: 450px;
+    display: flex;
+    align-items: center; /* Centers content vertically */
+    padding: 0 10%;
+    color: white;
+}
+
+.hero-content {
+    max-width: 600px; /* Prevents text from stretching too wide */
+}
+
+.subtitle {
+    color: #f1c40f; /* Gold */
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.hero-content h2 {
+    font-size: 48px;
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+.btn-gold {
+    background-color: #f1c40f;
+    color: #001a33;
+    padding: 12px 25px;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.btn-gold:hover {
+    background-color: #d4ac0d; /* Darker gold on hover */
+}
+
+/* ==========================================
+   SEARCH WIDGET
+   The floating box that overlaps the hero image
+   ========================================== */
+.search-widget {
+    background-color: white;
+    width: 80%;
+    max-width: 1100px;
+    margin: -50px auto 50px auto; /* Negative top margin pulls it UP into the hero image */
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Creates the floating effect */
+    position: relative;
+    z-index: 10; /* Keeps it above the hero section */
+}
+
+.search-form {
+    display: flex; /* Puts all input fields side-by-side */
+    gap: 15px; /* Space between inputs */
+    align-items: flex-end;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column; /* Stacks Label on top of Input */
+    flex: 1; /* Makes all input groups take equal width */
+}
+
+.input-group label {
+    font-size: 10px;
+    font-weight: 700;
+    color: #888;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.btn-search {
+    background-color: #f1c40f;
+    color: #001a33;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    font-weight: 700;
+    cursor: pointer;
+    height: 43px; /* Matches the height of the inputs */
+}
+
+/* ==========================================
+   INFO CARDS SECTION
+   Uses Flexbox to create 3 equal columns
+   ========================================== */
+.info-section {
+    width: 80%;
+    max-width: 1100px;
+    margin: 0 auto 60px auto;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 30px;
+}
+
+.cards-container {
+    display: flex;
+    gap: 20px; /* Space between cards */
+}
+
+.card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    flex: 1; /* Makes all cards equal width */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Soft shadow */
+    transition: transform 0.3s; /* Smooth animation for hover effect */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Lifts the card up slightly on hover */
+}
+
+.card-icon {
+    background-color: #eef4fa;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+/* ==========================================
+   BANNER & FOOTER
+   ========================================== */
+.banner {
+    background-color: white;
+    padding: 40px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+footer {
+    background-color: #111; /* Almost black */
+    color: #888;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+    font-size: 12px;
+}
+
+.footer-right a {
+    color: #888;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+/* --- HEADER LOGIN BUTTONS --- */
+.nav-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.login-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.login-link:hover {
+    color: #f1c40f;
+}
+
+.btn-register {
+    background-color: #f1c40f;
+    color: #001a33;
+    padding: 8px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.btn-register:hover {
+    background-color: #d4ac0d;
+}
+
+/* --- AUTHENTICATION PAGES (Login & Register) --- */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh; /* Takes up most of the screen */
+    background-color: #f4f6f9;
+    padding: 40px 20px;
+}
+
+.auth-box {
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 450px; /* Keeps the form narrow and clean */
+}
+
+.auth-box h2 {
+    color: #001a33;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.auth-subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+.auth-box .input-group {
+    margin-bottom: 20px;
+}
+
+.auth-box .input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 12px;
+    color: #333;
+}
+
+.auth-box .input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+}
+
+/* Makes the gold button span the full width of the form */
+.full-width {
+    width: 100%;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.switch-text {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 13px;
+    color: #666;
+}
+
+.switch-text a {
+    color: #0056b3;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.switch-text a:hover {
+    text-decoration: underline;
+}
