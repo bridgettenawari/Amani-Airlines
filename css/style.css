@@ -513,3 +513,36 @@ footer {
     margin-bottom: 0;
   }
 }
+
+
+/* ==========================================
+   CLICKABLE HOMEPAGE CARDS
+   ========================================== */
+.card-link {
+    text-decoration: none; /* Removes the ugly underline */
+    color: inherit; /* Keeps text black instead of link-blue */
+    display: flex; /* Ensures the link fills the space */
+    flex: 1; /* Makes all cards equal width */
+}
+
+.card-link .card {
+    width: 100%; /* Ensures the card fills the link */
+    display: flex;
+    flex-direction: column;
+}
+
+/* The little "View Details" text inside the card */
+.card-link-text {
+    margin-top: auto; /* Pushes the link text to the bottom of the card */
+    padding-top: 15px;
+    color: #0056b3;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+/* Add a hover effect to the whole card */
+.card-link:hover .card {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border-bottom: 3px solid #f1c40f; /* Gold accent on hover */
+}

@@ -18,17 +18,15 @@
          ========================================== -->
     <header>
         <div class="logo">
-            <!-- REPLACED EMOJI WITH YOUR LOGO -->
             <a href="index.html">
                 <img src="assets/images/logo.png" alt="Amani Airlines Logo" class="logo-img">
                 <h1>Amani Airlines</h1>
             </a>
         </div>
         
-        <!-- Navigation menu -->
         <nav>
             <ul>
-                <li><a href="#" class="active">Home</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="#">Arrivals</a></li>
                 <li><a href="#">Departures</a></li>
                 <li><a href="hotels.html">Hotels</a></li>
@@ -36,7 +34,6 @@
             </ul>
         </nav>
         
-        <!-- Search bar inside the header -->
         <div class="nav-search">
             <input type="search" placeholder="🔍 Search">
         </div>
@@ -94,7 +91,7 @@
     </section>
 
     <!-- ==========================================
-         MAIN CONTENT SECTION
+         MAIN CONTENT SECTION (UPDATED CARDS)
          ========================================== -->
     <main class="info-section">
         <div class="section-heading">
@@ -107,30 +104,39 @@
 
         <div class="cards-container">
             
-            <!-- Card 1: Arrivals (REPLACED EMOJI WITH IMAGE) -->
-            <article class="card">
-                <div class="card-icon">
-                    <img src="assets/images/Arrival.png" alt="Arrivals Icon">
-                </div>
-                <h3>Arrivals</h3>
-                <p>Track incoming flights and stay updated on arrival times.</p>
-            </article>
+            <!-- Card 1: Arrivals -->
+            <a href="flights/arrivals.html" class="card-link">
+                <article class="card">
+                    <div class="card-icon">
+                        <img src="assets/images/Arrival.png" alt="Arrivals Icon">
+                    </div>
+                    <h3>Arrivals</h3>
+                    <p>Track incoming flights and stay updated on arrival times.</p>
+                    <span class="card-link-text">View Arrivals &rarr;</span>
+                </article>
+            </a>
             
-            <!-- Card 2: Departures (REPLACED EMOJI WITH IMAGE) -->
-            <article class="card">
-                <div class="card-icon">
-                    <img src="assets/images/Departure.png" alt="Departures Icon">
-                </div>
-                <h3>Departures</h3>
-                <p>View departure schedules, gates, and real-time updates.</p>
-            </article>
+            <!-- Card 2: Departures -->
+            <a href="flights/departures.html" class="card-link">
+                <article class="card">
+                    <div class="card-icon">
+                        <img src="assets/images/Departure.png" alt="Departures Icon">
+                    </div>
+                    <h3>Departures</h3>
+                    <p>View departure schedules, gates, and real-time updates.</p>
+                    <span class="card-link-text">View Departures &rarr;</span>
+                </article>
+            </a>
 
-            <!-- Card 3: Hotels (Keeping emoji for now) -->
-            <article class="card">
-                <div class="card-icon">🏨</div>
-                <h3>Hotels</h3>
-                <p>Find a welcoming stay at your destination, wherever you fly.</p>
-            </article>
+            <!-- Card 3: Hotels -->
+            <a href="hotels.html" class="card-link">
+                <article class="card">
+                    <div class="card-icon">🏨</div>
+                    <h3>Hotels</h3>
+                    <p>Find a welcoming stay at your destination, wherever you fly.</p>
+                    <span class="card-link-text">View Hotels &rarr;</span>
+                </article>
+            </a>
             
         </div>
     </main>
