@@ -26,8 +26,8 @@
 
       <nav>
         <ul>
-          <li><a href="/index.html" class="active">Home</a></li>
-          <li><a href="/flights/arrivals.html">Arrivals</a></li>
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/flights/arrivals.html" class="active">Arrivals</a></li>
           <li><a href="/flights/departures.html">Departures</a></li>
           <li><a href="/hotels.html">Hotels</a></li>
           <li><a href="/about.html">About</a></li>
@@ -39,37 +39,83 @@
       </div>
 
       <div class="nav-actions">
-        <a href="auth/login.html" class="login-link">Login</a>
-        <a href="auth/register.html" class="btn-register">Create Account</a>
+        <a href="../auth/login.html" class="login-link">Login</a>
+        <a href="../auth/register.html" class="btn-register">Create Account</a>
       </div>
     </header>
+    <section class="hero arrivals-hero">
+      <div class="hero-content">
+        <h2>Arrivals</h2>
+        <p>
+          Check your incoming flight times and terminal information.
+        </p>
+      </div>
+    </section>
 
-    <main>
+    <main class="info-section">
+      <div class="section-heading arrivals-heading">
+        <div>
+          <span class="subtitle">FLIGHT STATUS</span>
+          <h2>Today's Arrivals</h2>
+        </div>
+        <p class="arrivals-subheading">
+          Check the latest arrival times, origins, and terminals for Amani
+          Airlines.
+        </p>
+      </div>
+
+      <!--search-->
+      <div class="search-widget arrivals-search-widget">
+        <form class="search-form" id="arrival-search-form">
+          <div class="input-group">
+            <label for="origin-input">FLIGHT ORIGIN</label>
+            <input
+              type="text"
+              id="origin-input"
+              placeholder="e.g., Mombasa, Kenya"
+            />
+          </div>
+          <div class="input-group">
+            <label for="flight-input">FLIGHT NUMBER</label>
+            <input type="text" id="flight-input" placeholder="e.g., KQ2135" />
+          </div>
+          <div class="input-group">
+            <label for="date-input">DATE</label>
+            <input type="date" id="date-input" />
+          </div>
+          <button type="submit" class="btn-search">🔍 Search Flights</button>
+        </form>
+      </div>
+
       <section class="table-wrapper">
         <table id="arrivals-table">
           <caption>
             ARRIVALS
           </caption>
-          <tr>
-            <th>DATE</th>
-            <th>FLIGHT NUMBER</th>
-            <th>FROM</th>
-            <th>AIRLINE</th>
-            <th>TAKE OFF</th>
-            <th>SCHEDULED ARRIVAL</th>
-            <th>ESTIMATED ARRIVAL</th>
-            <th>TERMINAL</th>
-          </tr>
-          <tr>
-            <td id="date">Mon, 30 Nov</td>
-            <td id="flight-no">KQ1111</td>
-            <td id="from">Mombasa</td>
-            <td id="airline">Kenya Airways</td>
-            <td id="dep-time">06:00</td>
-            <td id="sch-arr-time">07:00</td>
-            <td id="es-arr-time">07:12</td>
-            <td id="terminal">T1D</td>
-          </tr>
+          <thead>
+            <!--used for all row headings-->
+            <tr>
+              <th>SCHEDULED ARRIVAL</th>
+              <th>ESTIMATED ARRIVAL</th>
+              <th>FLIGHT NUMBER</th>
+              <th>FROM</th>
+              <th>AIRLINE</th>
+              <th>TERMINAL</th>
+              <th>STATUS</th>
+            </tr>
+          </thead>
+          <tbody id="arrivals-tbody">
+            <!--used for all non-heading rows-->
+            <tr>
+              <td class="sch-arr-time">07:00</td>
+              <td class="es-arr-time">07:12</td>
+              <td class="flight-no">KQ1111</td>
+              <td class="from">Mombasa, Kenya</td>
+              <td class="airline">Kenya Airways</td>
+              <td class="terminal">D1</td>
+              <td class="status-landed">LANDED</td>
+            </tr>
+          </tbody>
         </table>
       </section>
     </main>
@@ -82,8 +128,8 @@
         <p>&copy; 2026 Amani Airlines. All rights reserved.</p>
       </div>
       <div class="footer-right">
-        <a href="privacypolicy.html">Privacy Policy</a>
-        <a href="terms.html">Terms</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
       </div>
     </footer>
     <script src="/flights/arrivals.js"></script>

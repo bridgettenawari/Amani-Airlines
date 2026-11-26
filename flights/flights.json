@@ -1,197 +1,94 @@
 {
-    "arrivals":[
-        {
-            "date": "Mon, 30 Nov",
-            "flight_number": "KQ2135",
-            "from": "Dubai, UAE",
-            "airline": "Kenya Airways",
-            "take_off": "06:50",
-            "scheduled_arrival": "11:00",
-            "estimated_arrival": "11:20",
-            "terminal": "T1A"
-        },
-        {
-            "date": "Mon, 30 Nov",
-            "flight_number": "QR1126",
-            "from": "Doha, Qatar",
-            "airline": "Qatar Airways",
-            "take_off": "09:00",
-            "scheduled_arrival": "13:30",
-            "estimated_arrival": "13:45",
-            "terminal": "T1B"
-        },
-        {
-            "date": "Mon, 30 Nov",
-            "flight_number": "KQ3300",
-            "from": "Kisumu, Kenya",
-            "airline": "Kenya Airways",
-            "take_off": "10:30",
-            "scheduled_arrival": "11:15",
-            "estimated_arrival": "11:20",
-            "terminal": "T1D"
-        },
-        {
-            "date": "Mon, 30 Nov",
-            "flight_number": "D9300",
-            "from": "Mogadishu, Somalia",
-            "airline": "Kenya Airways",
-            "take_off": "10:50",
-            "scheduled_arrival": "12:35",
-            "estimated_arrival": "12:41",
-            "terminal": "T2A"
-        },
-        {
-            "date": "Mon, 30 Nov",
-            "flight_number": "KQ555",
-            "from": "Kinshasa, DRC",
-            "airline": "Kenya Airways",
-            "take_off": "11:00",
-            "scheduled_arrival": "16:05",
-            "estimated_arrival": "15:50",
-            "terminal": "T1A"
-        },
-        {
-            "date": "Mon, 30 Nov",
-            "flight_number": "JM8603",
-            "from": "Mombasa, Kenya",
-            "airline": "Jambojet",
-            "take_off": "12:00",
-            "scheduled_arrival": "13:10",
-            "estimated_arrival": "13:34",
-            "terminal": "T1D"
-        },
-        {
-            "date": "Mon, 30 Nov",
-            "flight_number": "KQ415",
-            "from": "Entebbe, Uganda",
-            "airline": "Kenya Airways",
-            "take_off": "12:35",
-            "scheduled_arrival": "13:20",
-            "estimated_arrival": "13:21",
-            "terminal": "T2A"
-        },
-        {
-            "date": "Mon, 30 Nov",
-            "flight_number": "KQ706",
-            "from": "Harare, Zimbabwe",
-            "airline": "Kenya Airways",
-            "take_off": "12:36",
-            "scheduled_arrival": "16:20",
-            "estimated_arrival": "16:30",
-            "terminal": "T1C"
-        },
-        {
-            "date": "Mon, 30 Nov",
-            "flight_number": "SA555",
-            "from": "Durban, South Africa",
-            "airline": "South African Airways",
-            "take_off": "12:50",
-            "scheduled_arrival": "17:35",
-            "estimated_arrival": "18:00",
-            "terminal": "T1A"
-        },
-        {
-            "date": "Mon, 30 Nov",
-            "flight_number": "KQ754",
-            "from": "Ukunda, Kenya",
-            "airline": "Kenya Airways",
-            "take_off": "14:42",
-            "scheduled_arrival": "15:40",
-            "estimated_arrival": "15:49",
-            "terminal": "T1D"
-        }
-    ],
-    "departures":[
-        {
-            "date": "Mon, 30 Nov",
-            "flight_number": "8V25",
-            "to": "Mwanza, Tanzania",
-            "airline": "Astral Aviation",
-            "take_off": "05:00",
-            "scheduled_arrival": "06:00",
-            "estimated_arrival": "06:00"
-        },
-        {
-            "date": "Mon, 30 Nov",
-            "flight_number": "JM8694",
-            "to": "Ukunda, Kenya",
-            "airline": "Jambojet",
-            "take_off": "06:00",
-            "scheduled_arrival": "07:15",
-            "estimated_arrival": "07:20"
-        },
-        {
-            "date": "Mon, 30 Nov",
-            "flight_number": "KQ202",
-            "to": "Mumbai, India",
-            "airline": "Kenya Airways",
-            "take_off": "06:50",
-            "scheduled_arrival": "13:05",
-            "estimated_arrival": "13:40"
-        },
-        {
-            "date": "Mon, 30 Nov",
-            "flight_number": "EK720",
-            "to": "Dubai, UAE",
-            "airline": "Emirates",
-            "take_off": "07:30",
-            "scheduled_arrival": "12:30",
-            "estimated_arrival": "13:00"
-        },
-        {
-            "date": "Mon, 30 Nov",
-            "flight_number": "ET319",
-            "to": "Addis, Ababa",
-            "airline": "Ethiopian Airlines",
-            "take_off": "08:16",
-            "scheduled_arrival": "10:20",
-            "estimated_arrival": "10:30"
-        },
-        {
-            "date": "Mon, 30 Nov",
-            "flight_number": "TC205",
-            "to": "Dar-es-Salaam, Tanzania",
-            "airline": "Air Tanzania",
-            "take_off": "08:50",
-            "scheduled_arrival": "10:05",
-            "estimated_arrival": "10:00"
-        },
-        {
-            "date": "Mon, 30 Nov",
-            "flight_number": "XU522",
-            "to": "Aden, Yemen",
-            "airline": "African Express Airways",
-            "take_off": "10:00",
-            "scheduled_arrival": "12:20",
-            "estimated_arrival": "12:36"
-        },
-        {
-            "date": "Mon, 30 Nov",
-            "flight_number": "HQ388",
-            "to": "Liege, Belgium",
-            "airline": "Compass Air Cargo",
-            "take_off": "11:00",
-            "scheduled_arrival": "18:55",
-            "estimated_arrival": "19:12"
-        },
-        {
-            "date": "Mon, 30 Nov",
-            "flight_number": "UU973",
-            "to": "Paris, France",
-            "airline": "Air Austral",
-            "take_off": "11:25",
-            "scheduled_arrival": "19:00",
-            "estimated_arrival": "19:45"
-        },
-        {
-            "date": "Mon, 30 Nov",
-            "flight_number": "BA64",
-            "to": "London, UK",
-            "airline": "British Airways",
-            "take_off": "12:30",
-            "scheduled_arrival": "18:55",
-            "estimated_arrival": "19:00"
-        }
-        
-    ]
+  "arrivals": [
+    {
+      "scheduled_arrival": "11:00",
+      "estimated_arrival": "11:02",
+      "flight_number": "KQ2135",
+      "from": "Dubai, UAE",
+      "airline": "Kenya Airways",
+      "terminal": "A1",
+      "status": "LANDED"
+    },
+    {
+      "scheduled_arrival": "11:15",
+      "estimated_arrival": "11:20",
+      "flight_number": "KQ3300",
+      "from": "Kisumu, Kenya",
+      "airline": "Kenya Airways",
+      "terminal": "D1",
+      "status": "LANDED"
+    },
+    {
+      "scheduled_arrival": "12:35",
+      "estimated_arrival": "12:41",
+      "flight_number": "D9300",
+      "from": "Mogadishu, Somalia",
+      "airline": "Kenya Airways",
+      "terminal": "A2",
+      "status": "LANDED"
+    },
+    {
+      "scheduled_arrival": "13:10",
+      "estimated_arrival": "13:08",
+      "flight_number": "JM8603",
+      "from": "Mombasa, Kenya",
+      "airline": "Jambojet",
+      "terminal": "D1",
+      "status": "ON TIME"
+    },
+    {
+      "scheduled_arrival": "13:20",
+      "estimated_arrival": "13:21",
+      "flight_number": "KQ415",
+      "from": "Entebbe, Uganda",
+      "airline": "Kenya Airways",
+      "terminal": "A2",
+      "status": "ON TIME"
+    },
+    {
+      "scheduled_arrival": "13:30",
+      "estimated_arrival": "13:29",
+      "flight_number": "QR1126",
+      "from": "Doha, Qatar",
+      "airline": "Qatar Airways",
+      "terminal": "B1",
+      "status": "ON TIME"
+    },
+    {
+      "scheduled_arrival": "15:40",
+      "estimated_arrival": "16:20",
+      "flight_number": "KQ754",
+      "from": "Ukunda, Kenya",
+      "airline": "Kenya Airways",
+      "terminal": "D1",
+      "status": "DELAYED"
+    },
+    {
+      "scheduled_arrival": "16:05",
+      "estimated_arrival": "15:59",
+      "flight_number": "KQ555",
+      "from": "Kinshasa, DRC",
+      "airline": "Kenya Airways",
+      "terminal": "A1",
+      "status": "ON TIME"
+    },
+    {
+      "scheduled_arrival": "16:20",
+      "estimated_arrival": "16:25",
+      "flight_number": "KQ706",
+      "from": "Harare, Zimbabwe",
+      "airline": "Kenya Airways",
+      "terminal": "C1",
+      "status": "ON TIME"
+    },
+    {
+      "scheduled_arrival": "17:35",
+      "estimated_arrival": "18:10",
+      "flight_number": "SA555",
+      "from": "Durban, South Africa",
+      "airline": "South African Airways",
+      "terminal": "A1",
+      "status": "DELAYED"
+    }
+  ]
 }
