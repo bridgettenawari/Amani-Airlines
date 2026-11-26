@@ -1,0 +1,36 @@
+{
+  "departures": [
+    {
+      "scheduled_departure": "08:30",
+      "estimated_departure": "08:30",
+      "flight_number": "AM 102",
+      "destination": "Mombasa (MBA)",
+      "gate": "A4",
+      "status": "ON TIME"
+    },
+    {
+      "scheduled_departure": "09:15",
+      "estimated_departure": "09:15",
+      "flight_number": "AM 304",
+      "destination": "Kigali (KGL)",
+      "gate": "B2",
+      "status": "BOARDING"
+    },
+    {
+      "scheduled_departure": "10:00",
+      "estimated_departure": "10:45",
+      "flight_number": "AM 450",
+      "destination": "Zanzibar (ZNZ)",
+      "gate": "C1",
+      "status": "DELAYED"
+    },
+    {
+      "scheduled_departure": "11:45",
+      "estimated_departure": "11:45",
+      "flight_number": "AM 112",
+      "destination": "Dar es Salaam (DAR)",
+      "gate": "A1",
+      "status": "ON TIME"
+    }
+  ]
+}

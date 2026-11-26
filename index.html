@@ -13,7 +13,9 @@
 </head>
 <body>
 
-    <!--HEADER SECTION -->
+    <!-- ==========================================
+         HEADER SECTION
+         ========================================== -->
     <header>
         <div class="logo">
             <a href="index.html">
@@ -22,7 +24,6 @@
             </a>
         </div>
         
-        <!-- NAVIGATION -->
         <nav>
             <ul>
                 <li><a href="index.html" class="active">Home</a></li>
@@ -37,13 +38,16 @@
             <input type="search" placeholder="🔍 Search">
         </div>
 
-        <div class="nav-actions">
-            <a href="auth/login.html" class="login-link">Login</a>
-            <a href="auth/register.html" class="btn-register">Create Account</a>
+        <!-- DYNAMIC HEADER BUTTONS -->
+        <div class="nav-actions" id="nav-actions">
+            <a href="auth/login.html" class="login-link" id="login-btn">Login</a>
+            <a href="auth/register.html" class="btn-register" id="register-btn">Create Account</a>
         </div>
     </header>
 
-    <!--HERO SECTION-->
+    <!-- ==========================================
+         HERO SECTION
+         ========================================== -->
     <section class="hero">
         <div class="hero-content">
             <span class="subtitle">DISCOVER AFRICA AND BEYOND</span>
@@ -53,29 +57,49 @@
         </div>
     </section>
 
-    <!--SEARCH WIDGET-->
+    <!-- ==========================================
+         SEARCH WIDGET (UPDATED WITH DROPDOWNS)
+         ========================================== -->
     <section class="search-widget" id="search">
         <div class="search-header">
             <h3>Find your next flight</h3>
             <span class="badge">Best fares, always</span>
         </div>
         
-        <form class="search-form">
+        <form class="search-form" id="flightSearchForm">
+            
+            <!-- FROM DROPDOWN -->
             <div class="input-group">
                 <label>FROM</label>
-                <input type="text" placeholder="Nairobi (NBO)">
+                <select id="from-city">
+                    <option value="Nairobi (NBO)">Nairobi (NBO)</option>
+                    <option value="Dubai (DXB)">Dubai (DXB)</option>
+                    <option value="Mombasa (MBA)">Mombasa (MBA)</option>
+                    <option value="Kisumu (KIS)">Kisumu (KIS)</option>
+                    <option value="Entebbe (EBB)">Entebbe (EBB)</option>
+                    <option value="Doha (DOH)">Doha (DOH)</option>
+                </select>
             </div>
             
+            <!-- TO DROPDOWN -->
             <div class="input-group">
                 <label>TO</label>
-                <input type="text" placeholder="Where are you going?">
+                <select id="to-city">
+                    <option value="Mombasa (MBA)">Mombasa (MBA)</option>
+                    <option value="Kigali (KGL)">Kigali (KGL)</option>
+                    <option value="Zanzibar (ZNZ)">Zanzibar (ZNZ)</option>
+                    <option value="Dar es Salaam (DAR)">Dar es Salaam (DAR)</option>
+                    <option value="Nairobi (NBO)">Nairobi (NBO)</option>
+                </select>
             </div>
             
+            <!-- DEPARTURE DATE -->
             <div class="input-group">
                 <label>DEPARTURE DATE</label>
                 <input type="date">
             </div>
             
+            <!-- RETURN DATE -->
             <div class="input-group">
                 <label>RETURN DATE</label>
                 <input type="date">
@@ -86,7 +110,7 @@
     </section>
 
     <!-- ==========================================
-         MAIN CONTENT SECTION (CLICKABLE CARDS)
+         MAIN CONTENT SECTION
          ========================================== -->
     <main class="info-section">
         <div class="section-heading">
@@ -136,13 +160,17 @@
         </div>
     </main>
 
-    <!--BANNER SECTION-->
+    <!-- ==========================================
+         BANNER SECTION
+         ========================================== -->
     <section class="banner">
         <h2>Wherever life takes you, get there with Amani.</h2>
         <a href="#" class="link-text">Plan your journey &rarr;</a>
     </section>
 
-    <!--FOOTER SECTION-->
+    <!-- ==========================================
+         FOOTER SECTION
+         ========================================== -->
     <footer>
         <div class="footer-left">
             <h3>✈️ Amani Airlines</h3>
@@ -156,5 +184,39 @@
         </div>
     </footer>
 
+    <!-- ==========================================
+         SCRIPTS
+         ========================================== -->
+    <script>
+        // 1. Dynamic Header (Login/Logout logic)
+        const isLoggedIn = localStorage.getItem('isLoggedIn');
+        const navActions = document.getElementById('nav-actions');
+
+        if (isLoggedIn === 'true') {
+            navActions.innerHTML = `
+                <a href="account.html" class="login-link">My Account</a>
+                <a href="#" class="btn-register" id="logout-btn">Logout</a>
+            `;
+
+            document.getElementById('logout-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                localStorage.clear(); // Clears ALL local storage
+                alert("You have been logged out.");
+                window.location.reload(); 
+            });
+        }
+
+                // 2. Flight Search Redirect
+        document.getElementById('flightSearchForm').addEventListener('submit', function(e) {
+            e.preventDefault(); 
+            
+            const fromCity = document.getElementById('from-city').value;
+            const toCity = document.getElementById('to-city').value;
+
+            // This redirects to results.html and passes the cities in the URL!
+            window.location.href = `flights/results.html?from=${encodeURIComponent(fromCity)}&to=${encodeURIComponent(toCity)}`;
+        });
+    </script>
+
 </body>
-</html>
+</html> 

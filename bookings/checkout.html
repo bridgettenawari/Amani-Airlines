@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Amani Airlines</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/arrivals.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="../index.html">
+                <img src="../assets/images/logo.png" alt="Amani Airlines Logo" class="logo-img">
+                <h1>Amani Airlines</h1>
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../flights/arrivals.html">Arrivals</a></li>
+                <li><a href="../flights/departures.html">Departures</a></li>
+                <li><a href="../hotels.html">Hotels</a></li>
+                <li><a href="../about.html">About</a></li>
+            </ul>
+        </nav>
+        <div class="nav-actions">
+            <a href="../account.html" class="login-link">My Account</a>
+            <a href="../index.html" class="btn-register" onclick="localStorage.removeItem('isLoggedIn'); localStorage.removeItem('hasBooking');">Logout</a>
+        </div>
+    </header>
+
+    <main class="info-section" style="flex: 1; margin-top: 50px; padding-bottom: 60px; display: flex; justify-content: center;">
+        
+        <!-- Checkout Card -->
+        <div style="background: white; padding: 40px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); max-width: 600px; width: 100%;">
+            <h2 style="color: #001a33; margin-bottom: 10px;">Confirm Your Booking</h2>
+            <p style="color: #666; margin-bottom: 30px;">Please review your details before confirming.</p>
+
+            <!-- Booking Details (Now Dynamic!) -->
+            <div style="border-top: 1px solid #eee; border-bottom: 1px solid #eee; padding: 20px 0; margin-bottom: 30px;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                    <span style="color: #666;">Item:</span>
+                    <!-- ADDED ID HERE -->
+                    <strong style="color: #001a33;" id="checkout-item">Loading...</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                    <span style="color: #666;">Check-in:</span>
+                    <strong>Oct 15, 2026</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                    <span style="color: #666;">Total Price:</span>
+                    <!-- ADDED ID HERE -->
+                    <strong style="color: #001a33; font-size: 20px;" id="checkout-price">Loading...</strong>
+                </div>
+            </div>
+
+            <!-- The Confirm Button -->
+            <button onclick="confirmBooking()" class="btn-gold full-width" style="font-size: 18px; padding: 15px;">Confirm & Pay</button>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="footer-left">
+            <h3>✈️ Amani Airlines</h3>
+        </div>
+        <div class="footer-center">
+            <p>&copy; 2026 Amani Airlines. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // 1. Get the saved booking details from the hotels page
+        const savedName = localStorage.getItem('bookingName');
+        const savedPrice = localStorage.getItem('bookingPrice');
+
+        // 2. Display them on the page. 
+        // (If they are null/empty, we fall back to a default hotel just in case)
+        if (savedName && savedPrice) {
+            document.getElementById('checkout-item').innerText = savedName;
+            document.getElementById('checkout-price').innerText = savedPrice + ' USD';
+        } else {
+            document.getElementById('checkout-item').innerText = "Amani Skybridge Hotel NBO";
+            document.getElementById('checkout-price').innerText = "$160 USD";
+        }
+
+        // 3. When they click Confirm
+        function confirmBooking() {
+            // Save a "booking" to local storage so the account page can read it
+            localStorage.setItem('hasBooking', 'true');
+            
+            // Save the name of the item they just booked
+            const finalItem = savedName ? savedName : "Amani Skybridge Hotel NBO";
+            localStorage.setItem('confirmedItem', finalItem);
+
+            alert("Payment Successful! Your trip is confirmed.");
+            window.location.href = "../account.html"; // Redirect to dashboard
+        }
+    </script>
+
+</body>
+</html>

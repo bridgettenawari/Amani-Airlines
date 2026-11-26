@@ -1,4 +1,4 @@
-const URL = "./flights.json"; // Fetch the arrivals data from flights.json
+const URL = "flights.json"; // Fetch the arrivals data from flights.json
 const tableBody = document.getElementById("arrivals-tbody"); // get the table's body by its id and assign it a variable
 
 // checking the flight's status

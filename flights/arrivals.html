@@ -3,34 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Arrivals- Amani Airlines</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/arrivals.css" />
+    <title>Arrivals - Amani Airlines</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    
+    <!-- Main Site CSS & Their Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/arrivals.css" />
   </head>
   <body>
+    
+    <!-- STANDARD HEADER -->
     <header>
       <div class="logo">
-        <a href="index.html">
-          <img
-            src="../assets/images/logo.png"
-            alt="Amani Airlines Logo"
-            class="logo-img"
-          />
+        <a href="../index.html">
+          <img src="../assets/images/logo.png" alt="Amani Airlines Logo" class="logo-img" />
           <h1>Amani Airlines</h1>
         </a>
       </div>
 
       <nav>
         <ul>
-          <li><a href="/index.html">Home</a></li>
-          <li><a href="/flights/arrivals.html" class="active">Arrivals</a></li>
-          <li><a href="/flights/departures.html">Departures</a></li>
-          <li><a href="/hotels.html">Hotels</a></li>
-          <li><a href="/about.html">About</a></li>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="arrivals.html" class="active">Arrivals</a></li>
+          <li><a href="departures.html">Departures</a></li>
+          <li><a href="../hotels.html">Hotels</a></li>
+          <li><a href="../about.html">About</a></li>
         </ul>
       </nav>
 
@@ -43,37 +42,35 @@
         <a href="../auth/register.html" class="btn-register">Create Account</a>
       </div>
     </header>
+
+    <!-- THEIR CUSTOM HERO -->
     <section class="hero arrivals-hero">
       <div class="hero-content">
+        <span class="subtitle">FLIGHT STATUS</span>
         <h2>Arrivals</h2>
-        <p>
-          Check your incoming flight times and terminal information.
-        </p>
+        <p>Check your incoming flight times and terminal information.</p>
       </div>
     </section>
 
-    <main class="info-section">
+    <!-- THEIR CUSTOM MAIN SECTION -->
+    <main class="arrivals-main">
+      
       <div class="section-heading arrivals-heading">
         <div>
-          <span class="subtitle">FLIGHT STATUS</span>
+          <span class="subtitle">TODAY'S FLIGHTS</span>
           <h2>Today's Arrivals</h2>
         </div>
         <p class="arrivals-subheading">
-          Check the latest arrival times, origins, and terminals for Amani
-          Airlines.
+          Check the latest arrival times, origins, and terminals for Amani Airlines.
         </p>
       </div>
 
-      <!--search-->
+      <!-- THEIR SEARCH WIDGET -->
       <div class="search-widget arrivals-search-widget">
         <form class="search-form" id="arrival-search-form">
           <div class="input-group">
             <label for="origin-input">FLIGHT ORIGIN</label>
-            <input
-              type="text"
-              id="origin-input"
-              placeholder="e.g., Mombasa, Kenya"
-            />
+            <input type="text" id="origin-input" placeholder="e.g., Mombasa, Kenya" />
           </div>
           <div class="input-group">
             <label for="flight-input">FLIGHT NUMBER</label>
@@ -87,13 +84,13 @@
         </form>
       </div>
 
+      <!-- THEIR TABLE WRAPPER -->
       <section class="table-wrapper">
         <table id="arrivals-table">
           <caption>
             ARRIVALS
           </caption>
           <thead>
-            <!--used for all row headings-->
             <tr>
               <th>SCHEDULED ARRIVAL</th>
               <th>ESTIMATED ARRIVAL</th>
@@ -105,21 +102,13 @@
             </tr>
           </thead>
           <tbody id="arrivals-tbody">
-            <!--used for all non-heading rows-->
-            <tr>
-              <td class="sch-arr-time">07:00</td>
-              <td class="es-arr-time">07:12</td>
-              <td class="flight-no">KQ1111</td>
-              <td class="from">Mombasa, Kenya</td>
-              <td class="airline">Kenya Airways</td>
-              <td class="terminal">D1</td>
-              <td class="status-landed">LANDED</td>
-            </tr>
+            <!-- Data will be injected here by JavaScript -->
           </tbody>
         </table>
       </section>
     </main>
 
+    <!-- STANDARD FOOTER -->
     <footer>
       <div class="footer-left">
         <h3>✈️ Amani Airlines</h3>
@@ -132,6 +121,8 @@
         <a href="#">Terms</a>
       </div>
     </footer>
-    <script src="/flights/arrivals.js"></script>
+
+    <!-- THEIR JAVASCRIPT -->
+    <script src="arrivals.js"></script>
   </body>
 </html>

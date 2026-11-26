@@ -48,7 +48,7 @@
             <h2>Hotels & Accommodation</h2>
         </div>
 
-        <!-- NEW: HOTEL SEARCH WIDGET -->
+        <!-- HOTEL SEARCH WIDGET -->
         <div class="search-widget" style="width: 100%; margin: 0 0 40px 0; max-width: 100%;">
             <form class="search-form">
                 <div class="input-group">
@@ -91,7 +91,8 @@
                 <div class="hotel-booking">
                     <span class="rate-label">Rate per night</span>
                     <strong class="price">$160 <small>USD</small></strong>
-                    <button type="button" class="btn-gold book-btn">Book Now</button>
+                    <!-- ADDED DATA ATTRIBUTES HERE -->
+                    <button type="button" class="btn-gold book-btn" data-name="Amani Skybridge Hotel NBO" data-price="$160">Book Now</button>
                 </div>
             </article>
 
@@ -113,7 +114,8 @@
                 <div class="hotel-booking">
                     <span class="rate-label">Rate per night</span>
                     <strong class="price">$95 <small>USD</small></strong>
-                    <button type="button" class="btn-gold book-btn">Book Now</button>
+                    <!-- ADDED DATA ATTRIBUTES HERE -->
+                    <button type="button" class="btn-gold book-btn" data-name="OR Tambo AeroPods JNB" data-price="$95">Book Now</button>
                 </div>
             </article>
 
@@ -135,7 +137,8 @@
                 <div class="hotel-booking">
                     <span class="rate-label">Rate per night</span>
                     <strong class="price">$210 <small>USD</small></strong>
-                    <button type="button" class="btn-gold book-btn">Book Now</button>
+                    <!-- ADDED DATA ATTRIBUTES HERE -->
+                    <button type="button" class="btn-gold book-btn" data-name="The Westlands Skyline Hotel" data-price="$210">Book Now</button>
                 </div>
             </article>
             
@@ -157,7 +160,8 @@
                 <div class="hotel-booking">
                     <span class="rate-label">Rate per night</span>
                     <strong class="price">$145 <small>USD</small></strong>
-                    <button type="button" class="btn-gold book-btn">Book Now</button>
+                    <!-- ADDED DATA ATTRIBUTES HERE -->
+                    <button type="button" class="btn-gold book-btn" data-name="Stone Town Harbor Suites" data-price="$145">Book Now</button>
                 </div>
             </article>
 
@@ -178,21 +182,31 @@
         </div>
     </footer>
 
-    <!-- NEW: LOGIN PROTECTION SCRIPT -->
+    <!-- LOGIN PROTECTION & INTENT SCRIPT -->
     <script>
-        // Check if user is logged in (we will set this in login.html)
         const isLoggedIn = localStorage.getItem('isLoggedIn');
         const bookButtons = document.querySelectorAll('.book-btn');
 
         bookButtons.forEach(button => {
             button.addEventListener('click', function(e) {
+                // 1. Get the specific hotel name and price from the button we just clicked
+                const hotelName = this.getAttribute('data-name');
+                const hotelPrice = this.getAttribute('data-price');
+
+                // 2. Save that info to localStorage so the Checkout page can read it
+                localStorage.setItem('bookingName', hotelName);
+                localStorage.setItem('bookingPrice', hotelPrice);
+
                 if (!isLoggedIn) {
                     e.preventDefault();
+                    // 3. Save the redirect intent so they go to checkout AFTER logging in
+                    localStorage.setItem('redirectTo', 'bookings/checkout.html');
+                    
                     alert("Please login or create an account to book a hotel.");
                     window.location.href = "auth/login.html";
                 } else {
-                    alert("Redirecting you to the booking system...");
-                    // window.location.href = "booking.html"; (Future feature)
+                    // If they are already logged in, go straight to checkout
+                    window.location.href = "bookings/checkout.html";
                 }
             });
         });
