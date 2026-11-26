@@ -40,7 +40,8 @@
         
         <div class="section-heading" style="flex-direction: column; align-items: flex-start; margin-bottom: 30px;">
             <div>
-                <span class="subtitle">WELCOME BACK</span>
+                <!-- ADDED ID HERE -->
+                <span class="subtitle" id="welcome-email">WELCOME BACK</span>
                 <h2>My Account Dashboard</h2>
             </div>
             <p style="margin-top: 10px;">Manage your upcoming flights and hotel bookings.</p>
@@ -70,7 +71,7 @@
             <p style="color: #999; font-size: 14px;">Use the options below to start planning your next journey.</p>
         </div>
 
-        <!-- NEW: QUICK ACTIONS -->
+        <!-- QUICK ACTIONS -->
         <div style="display: flex; gap: 20px;">
             
             <!-- Flight Action -->
@@ -107,7 +108,13 @@
 
     <!-- DASHBOARD SCRIPT -->
     <script>
-        // Check if the user has a booking saved in localStorage
+        // 1. Display the user's email in the header
+        const userEmail = localStorage.getItem('userEmail');
+        if (userEmail) {
+            document.getElementById('welcome-email').innerText = `WELCOME BACK, ${userEmail.toUpperCase()}`;
+        }
+
+        // 2. Check if the user has a booking saved in localStorage
         const hasBooking = localStorage.getItem('hasBooking');
         const confirmedItem = localStorage.getItem('confirmedItem'); 
         const tableBody = document.getElementById('trips-tbody');
