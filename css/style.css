@@ -1,50 +1,48 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Ensures padding doesn't affect total width */
+    box-sizing: border-box; /*Ensures padding doesn't affect total width*/
 }
 
-/* Base body styles */
+/*body*/
 body {
-    font-family: 'Montserrat', sans-serif; /* The font we imported in HTML */
-    background-color: #f8f9fa; /* Light gray background */
-    color: #333; /* Dark gray text for readability */
+    font-family: 'Montserrat', sans-serif; /*The font we imported in HTML*/
+    background-color: #f8f9fa; /*Light gray background*/
+    color: #333; /*Dark gray text for readability*/
     line-height: 1.6;
-    
-    /* --- NEW STICKY FOOTER MAGIC --- */
+    /*ensures the footer stays at the bottom*/
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    /* ------------------------------- */
 }
 
-/* ==========================================
-   HEADER & NAVIGATION
-   ========================================== */
+/*header and navigation*/
 header {
-    background-color: #001a33; /* Dark Navy Blue */
+    background-color: #001a33; /*dark navy blue*/
     color: white;
     display: flex; 
     justify-content: space-between; 
     align-items: center; 
     padding: 15px 50px;
+    /*ensures the header is displayed on top of other content*/
     position: sticky; 
     top: 0;
     z-index: 100; 
+    overflow-x: auto; /*shows a scrollbar for any content that spills over past the page*/
 }
 
-/* --- NEW LOGO STYLING --- */
+/*logo*/
 .logo a {
     display: flex;
     align-items: center;
-    gap: 15px; /* Space between logo image and text */
+    gap: 15px; /*space between logo image and text*/
     text-decoration: none;
     color: white;
 }
 
 .logo-img {
-    height: 50px; /* Adjust this if the logo is too big or too small */
-    width: auto;
+    height: 50px; 
+    width: auto; /*adjusts the logo size to make it proportional to the height*/
 }
 
 .logo h1 {
@@ -64,7 +62,7 @@ nav a {
     text-decoration: none; 
     font-size: 14px;
     font-weight: 600;
-    transition: color 0.3s; 
+    transition: color 0.3s;
 }
 
 nav a:hover, nav a.active {
@@ -80,7 +78,7 @@ nav a:hover, nav a.active {
     color: white;
 }
 
-/* --- HEADER LOGIN BUTTONS --- */
+/*login and register buttons on the header*/
 .nav-actions {
     display: flex;
     gap: 15px;
@@ -112,9 +110,7 @@ nav a:hover, nav a.active {
     background-color: #d4ac0d;
 }
 
-/* ==========================================
-   HERO SECTION
-   ========================================== */
+/*hero section*/
 .hero {
     background-image: linear-gradient(rgba(0, 26, 51, 0.7), rgba(0, 26, 51, 0.3)), url('https://images.unsplash.com/photo-1516939884455-1445c8652f83?q=80&w=2000&auto=format&fit=crop'); 
     background-size: cover; 
@@ -159,9 +155,7 @@ nav a:hover, nav a.active {
     background-color: #d4ac0d; 
 }
 
-/* ==========================================
-   SEARCH WIDGET
-   ========================================== */
+/*search widget*/
 .search-widget {
     background-color: white;
     width: 80%;
@@ -210,17 +204,12 @@ nav a:hover, nav a.active {
     height: 43px; 
 }
 
-/* ==========================================
-   INFO CARDS SECTION
-   ========================================== */
+/*information cards*/
 .info-section {
     width: 80%;
     max-width: 1100px;
     margin: 0 auto 60px auto;
-    
-    /* --- NEW: PUSHES FOOTER DOWN --- */
-    flex: 1; 
-    /* ------------------------------- */
+    flex: 1; /*used to push the footer down by ensuring it takes up the space in the middle of the page*/
 }
 
 .section-heading {
@@ -248,7 +237,6 @@ nav a:hover, nav a.active {
     transform: translateY(-5px); 
 }
 
-/* --- NEW CARD ICON STYLING --- */
 .card-icon {
     background-color: #eef4fa;
     width: 50px;
@@ -258,8 +246,8 @@ nav a:hover, nav a.active {
     align-items: center;
     border-radius: 8px;
     margin-bottom: 20px;
-    overflow: hidden; /* Ensures image stays inside the blue box */
-    font-size: 24px; /* For the emoji fallback */
+    overflow: hidden; /*Hides any overflowing content*/
+    font-size: 24px; /*For the emoji fallback*/
 }
 
 .card-icon img {
@@ -268,9 +256,6 @@ nav a:hover, nav a.active {
     object-fit: contain;
 }
 
-/* ==========================================
-   BANNER & FOOTER
-   ========================================== */
 .banner {
     background-color: white;
     padding: 40px 10%;
@@ -297,9 +282,7 @@ footer {
     margin-left: 20px;
 }
 
-/* ==========================================
-   AUTHENTICATION PAGES (Login & Register)
-   ========================================== */
+/*authentication pages*/
 .auth-container {
     display: flex;
     justify-content: center;
@@ -307,10 +290,8 @@ footer {
     min-height: 70vh; 
     background-color: #f4f6f9;
     padding: 40px 20px;
-    
-    /* --- NEW: PUSHES FOOTER DOWN ON AUTH PAGES --- */
+    /*pushes the footer down*/
     flex: 1;
-    /* --------------------------------------------- */
 }
 
 .auth-box {
@@ -381,11 +362,9 @@ footer {
 }
 
 
-/* ==========================================
-   HOTELS PAGE SPECIFIC STYLES (From Group Mark)
-   ========================================== */
+/*Hotel page styling*/
 .hotels-container {
-  max-width: 1100px; /* Widened to match your main page layout */
+  max-width: 1100px; /*Widened to match the main page*/
   margin: 50px auto;
   padding: 0 20px;
 }
@@ -404,7 +383,7 @@ footer {
   display: flex;
   align-items: center;
   gap: 25px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Matching your card shadow */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /*Creates a shadow behind the element*/
 }
 
 .hotel-item img {
@@ -451,7 +430,7 @@ footer {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  padding-left: 0; /* Reset padding */
+  padding-left: 0
 }
 
 .amenities li {
@@ -488,7 +467,7 @@ footer {
   color: #777777;
 }
 
-/* Mobile responsiveness for the hotel cards */
+/*Mobile responsiveness for the hotel cards*/
 @media (max-width: 768px) {
   .hotel-item {
     flex-direction: column;
@@ -515,9 +494,7 @@ footer {
 }
 
 
-/* ==========================================
-   CLICKABLE HOMEPAGE CARDS
-   ========================================== */
+/*Clickable cards on the homepage*/
 .card-link {
     text-decoration: none; /* Removes the ugly underline */
     color: inherit; /* Keeps text black instead of link-blue */

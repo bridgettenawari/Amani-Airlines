@@ -1,0 +1,57 @@
+.table-wrapper {
+    display: flex;
+    justify-content: center; /*centres the table horizontally*/
+    padding: 30px 20px;
+    overflow-x: auto; /*adds a scrollbar if the table is bigger than the screen*/
+}
+
+table {
+    width: 100%;
+    max-width: 1100px; /*max width in other pages*/
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden; /*hides any overflowing content like text in the table*/
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08); /*adds a slight shadow behind the table*/
+    font-family: 'Montserrat', sans-serif; /*font in the other pages, if the imported text can't be displayed, it uses sans-serif as backup*/
+}
+
+caption {
+    caption-side: top; /*ensures the caption is on top of the table*/
+    text-align: left;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #0f2942;
+    background-color: rgb(225, 239, 239);
+    padding: 16px 20px;
+    border-bottom: 2px solid #cbd5e1;
+}
+
+th {
+    background-color: #0f2942;
+    color: #ffffff;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-align: center;
+    padding: 14px 12px;
+}
+
+td {
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: #1e293b;
+    text-align: center;
+    padding: 14px 12px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+/*makes the table have alternating row colours*/
+tr:nth-child(even) td {
+    background-color: rgba(225, 239, 239, 0.35);
+}
+
+/*changes the color of the row you hover on*/
+tr:hover td {
+    background-color: rgb(225, 239, 239);
+}
