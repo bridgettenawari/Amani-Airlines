@@ -67,29 +67,21 @@ Option 1: Front-End Only (No Python Required)
     Double-click index.html to open it in your browser.
 
     (Note: The site will run in "Offline Mode" using localStorage for login and bookings).
-
 Option 2: Full-Stack Mode (With Python Backend)
 
 To see the database in action:
 
-    Ensure Python 3 is installed.
+   1. Ensure Python 3 is installed.
 
-    Install the required packages:
-    bash
-
-pip install flask flask-cors
-
-Start the Python server from the root directory:
-bash
-
-python3 app.py
-
-Open index.html in your browser. Register a new user, and the data will be saved to amani_airlines.db.
+   2. Install the required packages:
+       pip install flask flask-cors
+   3.Start the Python server from the root directory:
+       python3 app.py
+   4.Open index.html in your browser. Register a new user, and the data will be saved to amani_airlines.db.
 
 🔍 Viewing the Database (Terminal)
 
 To view the saved data directly from your terminal:
-bash
-
 sqlite3 -header -column amani_airlines.db "SELECT * FROM users;"
 sqlite3 -header -column amani_airlines.db "SELECT * FROM bookings;"
+    
