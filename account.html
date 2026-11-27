@@ -30,7 +30,6 @@
         </nav>
         <div class="nav-actions">
             <a href="account.html" class="login-link">My Account</a>
-            <!-- UPDATED LOGOUT TO CLEAR ALL DATA -->
             <a href="index.html" class="btn-register" onclick="localStorage.clear()">Logout</a>
         </div>
     </header>
@@ -40,30 +39,54 @@
         
         <div class="section-heading" style="flex-direction: column; align-items: flex-start; margin-bottom: 30px;">
             <div>
-                <!-- ADDED ID HERE -->
                 <span class="subtitle" id="welcome-email">WELCOME BACK</span>
                 <h2>My Account Dashboard</h2>
             </div>
             <p style="margin-top: 10px;">Manage your upcoming flights and hotel bookings.</p>
         </div>
 
-        <!-- Trips Table -->
-        <section class="table-wrapper" style="padding: 0; margin-bottom: 40px;">
-            <table id="trips-table">
-                <caption>MY UPCOMING TRIPS</caption>
-                <thead>
-                    <tr>
-                        <th>DATE</th>
-                        <th>TYPE</th>
-                        <th>DETAILS</th>
-                        <th>STATUS</th>
-                    </tr>
-                </thead>
-                <tbody id="trips-tbody">
-                    <!-- JS will inject the booking here -->
-                </tbody>
-            </table>
-        </section>
+        <!-- SPLIT TABLES CONTAINER -->
+        <div style="display: flex; gap: 30px; margin-bottom: 40px;">
+            
+            <!-- LEFT TABLE: FLIGHTS -->
+            <div style="flex: 1;">
+                <h3 style="color: #001a33; margin-bottom: 15px; font-size: 20px;">✈️ My Flights</h3>
+                <section class="table-wrapper" style="padding: 0;">
+                    <table id="flights-table">
+                        <thead>
+                            <tr>
+                                <th>DATE</th>
+                                <th>FLIGHT DETAILS</th>
+                                <th>STATUS</th>
+                            </tr>
+                        </thead>
+                        <tbody id="flights-tbody">
+                            <!-- JS will inject flights here -->
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+
+            <!-- RIGHT TABLE: HOTELS -->
+            <div style="flex: 1;">
+                <h3 style="color: #001a33; margin-bottom: 15px; font-size: 20px;">🏨 My Hotel Stays</h3>
+                <section class="table-wrapper" style="padding: 0;">
+                    <table id="hotels-table">
+                        <thead>
+                            <tr>
+                                <th>DATE</th>
+                                <th>HOTEL DETAILS</th>
+                                <th>STATUS</th>
+                            </tr>
+                        </thead>
+                        <tbody id="hotels-tbody">
+                            <!-- JS will inject hotels here -->
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+
+        </div>
 
         <!-- Empty State Message (Hidden by default) -->
         <div id="no-bookings" style="display: none; text-align: center; padding: 40px; background: white; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-top: 20px; margin-bottom: 40px;">
@@ -108,33 +131,76 @@
 
     <!-- DASHBOARD SCRIPT -->
     <script>
-        // 1. Display the user's email in the header
-        const userEmail = localStorage.getItem('userEmail');
-        if (userEmail) {
-            document.getElementById('welcome-email').innerText = `WELCOME BACK, ${userEmail.toUpperCase()}`;
-        }
+        // 1. Display the user's email
+        const userEmail = localStorage.getItem('userEmail') || 'guest@amani.com';
+        document.getElementById('welcome-email').innerText = `WELCOME BACK, ${userEmail.toUpperCase()}`;
 
-        // 2. Check if the user has a booking saved in localStorage
-        const hasBooking = localStorage.getItem('hasBooking');
-        const confirmedItem = localStorage.getItem('confirmedItem'); 
-        const tableBody = document.getElementById('trips-tbody');
-        const table = document.getElementById('trips-table');
+        const flightsTbody = document.getElementById('flights-tbody');
+        const hotelsTbody = document.getElementById('hotels-tbody');
+        const flightsTable = document.getElementById('flights-table');
+        const hotelsTable = document.getElementById('hotels-table');
         const noBookings = document.getElementById('no-bookings');
 
-        if (hasBooking === 'true') {
-            // Inject a row representing the booking they just made
-            tableBody.innerHTML = `
-                <tr>
-                    <td>Oct 15, 2026</td>
-                    <td>Hotel</td>
-                    <td>${confirmedItem || 'Amani Skybridge Hotel NBO'}</td>
-                    <td class="status-landed">CONFIRMED</td>
-                </tr>
-            `;
-        } else {
-            // If no booking, hide the table and show the empty state
-            table.style.display = 'none';
-            noBookings.style.display = 'block';
+        // 2. Fetch from Python Backend
+        fetch(`http://127.0.0.1:5000/api/my-bookings?email=${encodeURIComponent(userEmail)}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.length > 0) {
+                    let hasFlights = false;
+                    let hasHotels = false;
+
+                    data.forEach(booking => {
+                        const row = `
+                            <tr>
+                                <td>${booking.booking_date}</td>
+                                <td>${booking.item_name}</td>
+                                <td class="status-landed">CONFIRMED</td>
+                            </tr>
+                        `;
+                        
+                        // Sort them based on booking_type
+                        if (booking.booking_type === 'Flight') {
+                            flightsTbody.innerHTML += row;
+                            hasFlights = true;
+                        } else {
+                            hotelsTbody.innerHTML += row;
+                            hasHotels = true;
+                        }
+                    });
+
+                    // Show a nice message if they only have one type of booking
+                    if (!hasFlights) flightsTbody.innerHTML = `<tr><td colspan="3" style="text-align:center; color:#999;">No flights booked yet.</td></tr>`;
+                    if (!hasHotels) hotelsTbody.innerHTML = `<tr><td colspan="3" style="text-align:center; color:#999;">No hotels booked yet.</td></tr>`;
+                    
+                } else {
+                    checkLocalStorage();
+                }
+            })
+            .catch(error => {
+                console.log("Python backend not detected. Using localStorage fallback.");
+                checkLocalStorage();
+            });
+
+        // 3. The LocalStorage Fallback
+        function checkLocalStorage() {
+            const hasBooking = localStorage.getItem('hasBooking');
+            const confirmedItem = localStorage.getItem('confirmedItem'); 
+
+            if (hasBooking === 'true') {
+                // If offline, we don't know the type, so we default to the Hotel table
+                hotelsTbody.innerHTML = `
+                    <tr>
+                        <td>Oct 15, 2026</td>
+                        <td>${confirmedItem || 'Amani Skybridge Hotel NBO'}</td>
+                        <td class="status-landed">CONFIRMED</td>
+                    </tr>
+                `;
+                flightsTbody.innerHTML = `<tr><td colspan="3" style="text-align:center; color:#999;">No flights booked yet.</td></tr>`;
+            } else {
+                flightsTable.style.display = 'none';
+                hotelsTable.style.display = 'none';
+                noBookings.style.display = 'block';
+            }
         }
     </script>
 

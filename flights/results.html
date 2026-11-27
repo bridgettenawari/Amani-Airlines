@@ -38,8 +38,9 @@
         <div class="section-heading" style="flex-direction: column; align-items: flex-start; margin-bottom: 30px;">
             <div>
                 <span class="subtitle">SEARCH RESULTS</span>
-                <!-- The JavaScript will fill in the city names here -->
+                <!-- JavaScript will fill in the cities and date here -->
                 <h2 id="search-title">Flights from Nairobi to Mombasa</h2>
+                <p style="color: #666; margin-top: 5px;" id="search-date">Date: Any</p>
             </div>
             <p style="margin-top: 10px;">Select a flight below to proceed to checkout.</p>
         </div>
@@ -54,7 +55,7 @@
                         <h3>AM 102 - Amani Airlines</h3>
                         <span class="rating">Direct</span>
                     </div>
-                    <p class="location" id="flight-route-1">Nairobi (NBO) to Mombasa (MBA)</p>
+                    <p class="location" id="route-1">Nairobi (NBO) to Mombasa (MBA)</p>
                     <ul class="amenities">
                         <li>08:30 - 09:30</li>
                         <li>Economy</li>
@@ -75,7 +76,7 @@
                         <h3>AM 104 - Amani Airlines</h3>
                         <span class="rating">Direct</span>
                     </div>
-                    <p class="location" id="flight-route-2">Nairobi (NBO) to Mombasa (MBA)</p>
+                    <p class="location" id="route-2">Nairobi (NBO) to Mombasa (MBA)</p>
                     <ul class="amenities">
                         <li>12:15 - 13:15</li>
                         <li>Economy</li>
@@ -86,6 +87,27 @@
                     <span class="rate-label">Price per person</span>
                     <strong class="price">$110 <small>USD</small></strong>
                     <button type="button" class="btn-gold" onclick="selectFlight('AM 104 Flight', '$110')">Select Flight</button>
+                </div>
+            </article>
+
+            <!-- NEW: Flight 3 -->
+            <article class="hotel-item">
+                <div class="hotel-details" style="padding-left: 20px;">
+                    <div class="title-row">
+                        <h3>AM 108 - Amani Airlines</h3>
+                        <span class="rating">1 Stop</span>
+                    </div>
+                    <p class="location" id="route-3">Nairobi (NBO) to Mombasa (MBA)</p>
+                    <ul class="amenities">
+                        <li>18:00 - 20:30</li>
+                        <li>Economy</li>
+                        <li>2h 30m</li>
+                    </ul>
+                </div>
+                <div class="hotel-booking">
+                    <span class="rate-label">Price per person</span>
+                    <strong class="price">$65 <small>USD</small></strong>
+                    <button type="button" class="btn-gold" onclick="selectFlight('AM 108 Flight', '$65')">Select Flight</button>
                 </div>
             </article>
 
@@ -110,11 +132,16 @@
         const urlParams = new URLSearchParams(window.location.search);
         const fromCity = urlParams.get('from') || 'Nairobi';
         const toCity = urlParams.get('to') || 'Mombasa';
+        const searchDate = urlParams.get('date') || 'Any Date';
         
         // 2. Update the titles to show the actual search
         document.getElementById('search-title').innerText = `Flights from ${fromCity} to ${toCity}`;
-        document.getElementById('flight-route-1').innerText = `${fromCity} to ${toCity}`;
-        document.getElementById('flight-route-2').innerText = `${fromCity} to ${toCity}`;
+        document.getElementById('search-date').innerText = `Date: ${searchDate}`;
+        
+        // Update all three routes
+        document.getElementById('route-1').innerText = `${fromCity} to ${toCity}`;
+        document.getElementById('route-2').innerText = `${fromCity} to ${toCity}`;
+        document.getElementById('route-3').innerText = `${fromCity} to ${toCity}`;
 
         // 3. Function to handle selecting a flight
         function selectFlight(flightName, flightPrice) {

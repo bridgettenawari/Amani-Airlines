@@ -72,7 +72,7 @@
     </footer>
 
     <script>
-        // 1. Get the saved booking details from the hotels/flights page
+        // 1. Get the saved booking details
         const savedName = localStorage.getItem('bookingName');
         const savedPrice = localStorage.getItem('bookingPrice');
         const userEmail = localStorage.getItem('userEmail') || 'guest@amani.com';
@@ -91,9 +91,14 @@
             const itemName = savedName || "Amani Skybridge Hotel NBO";
             const itemPrice = savedPrice || "$160";
 
-            // Save locally just in case the backend is offline
+            // Save locally for offline fallback
             localStorage.setItem('hasBooking', 'true');
             localStorage.setItem('confirmedItem', itemName);
+
+            // Determine the booking type based on the item name
+            // If the name contains "Hotel" or "Suites", it's a Hotel. Otherwise, it's a Flight.
+            const isHotel = itemName.includes("Hotel") || itemName.includes("Suites") || itemName.includes("AeroPods");
+            const bookingType = isHotel ? "Hotel" : "Flight";
 
             // Send to Python Backend
             fetch('http://127.0.0.1:5000/api/book', {
@@ -102,7 +107,8 @@
                 body: JSON.stringify({ 
                     email: userEmail, 
                     item_name: itemName, 
-                    item_price: itemPrice 
+                    item_price: itemPrice,
+                    booking_type: bookingType // <-- ADDED THIS
                 })
             })
             .then(response => response.json())

@@ -53,12 +53,12 @@
             <span class="subtitle">DISCOVER AFRICA AND BEYOND</span>
             <h2>Fly with Amani.<br>Your journey begins here.</h2>
             <p>Thoughtful service, inspiring destinations, and the warm spirit of Africa—every time you fly.</p>
-            <a href="#search" class="btn-gold">Book a Flight &rarr;</a>
+            <a href="#search" class="btn-gold" id="book-flight-btn">Book a Flight &rarr;</a>
         </div>
     </section>
 
     <!-- ==========================================
-         SEARCH WIDGET (UPDATED WITH DROPDOWNS)
+         SEARCH WIDGET
          ========================================== -->
     <section class="search-widget" id="search">
         <div class="search-header">
@@ -93,10 +93,10 @@
                 </select>
             </div>
             
-            <!-- DEPARTURE DATE -->
+            <!-- DEPARTURE DATE (UPDATED WITH ID) -->
             <div class="input-group">
                 <label>DEPARTURE DATE</label>
-                <input type="date">
+                <input type="date" id="departure-date">
             </div>
             
             <!-- RETURN DATE -->
@@ -200,23 +200,38 @@
 
             document.getElementById('logout-btn').addEventListener('click', function(e) {
                 e.preventDefault();
-                localStorage.clear(); // Clears ALL local storage
+                localStorage.clear();
                 alert("You have been logged out.");
                 window.location.reload(); 
             });
         }
 
-                // 2. Flight Search Redirect
+        // 2. Smart "Book a Flight" Button
+        document.getElementById('book-flight-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const loggedIn = localStorage.getItem('isLoggedIn');
+            
+            if (loggedIn === 'true') {
+                window.location.href = "account.html";
+            } else {
+                alert("Please login or create an account to start booking flights.");
+                window.location.href = "auth/login.html";
+            }
+        });
+
+        // 3. Flight Search Redirect (UPDATED TO PASS DATE)
         document.getElementById('flightSearchForm').addEventListener('submit', function(e) {
             e.preventDefault(); 
             
             const fromCity = document.getElementById('from-city').value;
             const toCity = document.getElementById('to-city').value;
+            const departureDate = document.getElementById('departure-date').value || 'Any Date';
 
-            // This redirects to results.html and passes the cities in the URL!
-            window.location.href = `flights/results.html?from=${encodeURIComponent(fromCity)}&to=${encodeURIComponent(toCity)}`;
+            // Pass the cities AND the date in the URL
+            window.location.href = `flights/results.html?from=${encodeURIComponent(fromCity)}&to=${encodeURIComponent(toCity)}&date=${encodeURIComponent(departureDate)}`;
         });
     </script>
 
 </body>
-</html> 
+</html>
